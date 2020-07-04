@@ -87,6 +87,9 @@ async def on_message(message):
         shieldArray.sort(key=lambda x: x[1])
         for i in shieldArray:
             dt3 = i[1] - dt.timedelta(seconds = (time.time() - i[2])) #time until shield expire
+            if dt3 <= dt.timedelta(seconds = 0):
+                del shieldArray[i]
+                continue
             dt4 = dt.datetime.now(JST) + i[1] - dt.timedelta(seconds = (time.time() - i[2])) #expected end time
             await message.channel.send(str(i[0])+"さん")
             await message.channel.send(dt4.strftime("%m/%d %H:%M ")+str(dt3).split(':',3)[0]+"時間"+str(dt3).split(':',3)[1]+"分") 
@@ -117,6 +120,9 @@ async def on_message(message):
     shieldArray.sort(key=lambda x: x[1])
     for i in shieldArray:
         dt3 = i[1] - dt.timedelta(seconds = (time.time() - i[2])) #time until shield expire
+        if dt3 <= dt.timedelta(seconds = 0):
+            del shieldArray[i]
+            continue
         dt4 = dt.datetime.now(JST) + i[1] - dt.timedelta(seconds = (time.time() - i[2])) #expected end time
         await message.channel.send(str(i[0])+"さん")
         await message.channel.send(dt4.strftime("%m/%d %H:%M ")+str(dt3).split(':',3)[0]+"時間"+str(dt3).split(':',3)[1]+"分")
