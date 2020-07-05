@@ -100,10 +100,11 @@ async def on_message(message):
     else:
         dt1 = dt.timedelta(hours = int(message.content))
     
-        dt2 = dt.timedelta(hours = 168) # up to 7days
-        if dt1 > dt2:
-            await message.channel.send("up to 7days")
-            return
+    # Check shield time up to 7days
+    dt2 = dt.timedelta(hours = 168) 
+    if dt1 > dt2:
+        await message.channel.send("Shield time is up to 7days")
+        return
             
     #check author exists in the list
     result = False
