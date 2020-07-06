@@ -52,6 +52,9 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    
+    dt1 = dt.timedelta(seconds = 0) # initialize dt1 explicitly to avoid warning
+    
     """メッセージを処理"""
     if message.author.bot:  # ボットのメッセージをハネる
         return
@@ -95,7 +98,6 @@ async def on_message(message):
             await message.channel.send(str(i[0])+"さん")
             await message.channel.send(dt4.strftime("%m/%d %H:%M ")+str(dt3).split(':',3)[0]+"時間"+str(dt3).split(':',3)[1]+"分") 
 
-    dt1 = dt.timedelta(seconds = 0) # initialize dt1 explicitly to avoid warning
     elif ':' in message.content:
         valArray = message.content.split(':')
         dt1 = dt.timedelta(hours = int(valArray[0]), minutes = int(valArray[1]))
