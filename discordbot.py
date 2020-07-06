@@ -30,6 +30,7 @@ TOKEN = os.environ['DISCORD_BOT_TOKEN']
 
 client = discord.Client()  # 接続に使用するオブジェクト
 shieldArray = []
+dt1 = dt.timedelta(seconds = 0) # initialize dt1 explicitly to avoid warning
 
 from datetime import datetime, timedelta, timezone
 # タイムゾーンの生成
