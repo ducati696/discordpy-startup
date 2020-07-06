@@ -127,7 +127,7 @@ async def on_message(message):
         dt3 = i[1] - dt.timedelta(seconds = (time.time() - i[2])) #time until shield expire
         if dt3 <= dt.timedelta(seconds = 0):
             j = shieldArray.index(i)
-            del shieldArray[i]
+            del shieldArray[j]
             continue
         dt4 = dt.datetime.now(JST) + i[1] - dt.timedelta(seconds = (time.time() - i[2])) #expected end time
         await message.channel.send(str(i[0])+"さん")
