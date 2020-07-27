@@ -81,7 +81,7 @@ async def on_message(message):
         # ダイレクトメッセージ送信
         dm = await message.author.create_dm()
         await dm.send(f"{message.author.mention}さんにダイレクトメッセージ")
-
+'''
     elif message.content == "help":
         # チャンネルへメッセージを送信
          await message.channel.send("これはシールド時間管理BOTです。\n時間を入力すればカウントダウンを始めます。\n例えば8時間なら\n   8\nと入力。もしくは\n  8:30\nのように分までの入力も受け付けます。")  # f文字列（フォーマット済み文字列リテラル）
@@ -132,7 +132,7 @@ async def on_message(message):
         dt4 = dt.datetime.now(JST) + i[1] - dt.timedelta(seconds = (time.time() - i[2])) #expected end time
         await message.channel.send(str(i[0])+"さん")
         await message.channel.send(dt4.strftime("%m/%d %H:%M ")+str(dt3).split(':',3)[0]+"時間"+str(dt3).split(':',3)[1]+"分")
-
+'''
 # botの接続と起動
 # （botアカウントのアクセストークンを入れてください）
 client.run(TOKEN)
